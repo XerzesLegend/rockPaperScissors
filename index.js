@@ -13,6 +13,7 @@ function computerPlay(){
 
 function playerPlay(){
     let answer = prompt("rock, paper, or scissors?");
+    answer.toLowerCase();
     return answer
 }
 function playRound(computerSelection, playerSelection, score){
