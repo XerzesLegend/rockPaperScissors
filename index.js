@@ -38,11 +38,11 @@ function playRound(computerSelection, playerSelection, score){
         score[0] += 1    
     }
     else if ((computerSelection=="scissors") && (playerSelection=="paper")){
-        result = "You lose :( " + playerSelection + "loses to " + computerSelection;
+        result = "You lose :( " + playerSelection + " loses to " + computerSelection;
         score[0] += 1    
     }
     else if ((computerSelection=="paper") && (playerSelection=="rock")){
-        result = "You lose :( " + playerSelection + "loses to " + computerSelection;
+        result = "You lose :( " + playerSelection + " loses to " + computerSelection;
         score[0] += 1    
     }
     console.log(result);
@@ -66,3 +66,17 @@ function game(){
     }
     console.log(result)
 }
+
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+let score = [0,0]
+
+rock.addEventListener('click', function() { playRound(computerPlay(), "rock", score); } );
+paper.addEventListener('click', function() { playRound(computerPlay(), "paper", score); });
+scissors.addEventListener('click', function() { playRound(computerPlay(), "scissors", score); });
+
+const div = document.createElement('div');
+
+
