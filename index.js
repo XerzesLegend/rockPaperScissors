@@ -17,7 +17,7 @@ function playerPlay(){
     return answer
 }
 function playRound(computerSelection, playerSelection, score){
-    let result
+    let result;
     if (computerSelection == playerSelection){
         result = "It is a tie!"
     }
@@ -45,8 +45,8 @@ function playRound(computerSelection, playerSelection, score){
         result = "You lose :( " + playerSelection + " loses to " + computerSelection;
         score[0] += 1    
     }
-    console.log(result);
-    return score
+    //console.log(result);
+    return result
 }
 
 function game(){
@@ -66,17 +66,56 @@ function game(){
     }
     console.log(result)
 }
-
+function startAgain(){
+    if(score[0] == 5){
+        score = [0,0];
+        player.innerText = score[0];
+        computer.innerText = score[1];
+        comment.innerText = "You win, you have saved humanity! Pick rock, paper, or scissors to start again";
+    }
+    if(score[1] == 5){
+        score = [0,0];
+        player.innerText = score[0];
+        computer.innerText = score[1];
+        comment.innerText = "You lose, humanity is doomed! Pick rock, paper, or scissors to start again";
+    }
+}
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-let score = [0,0]
+const cont = document.querySelector('#container');
+let player = document.createElement('div');
+let computer = document.createElement('div');
+let score = [0,0];
+let comment = document.createElement('div');
 
-rock.addEventListener('click', function() { playRound(computerPlay(), "rock", score); } );
-paper.addEventListener('click', function() { playRound(computerPlay(), "paper", score); });
-scissors.addEventListener('click', function() { playRound(computerPlay(), "scissors", score); });
+player.innerText = score[0];
+computer.innerText = score[1];
+comment.innerText = "Pick rock, paper, or scissors to start";
 
-const div = document.createElement('div');
+rock.addEventListener('click', function() { 
+    result = playRound(computerPlay(), "rock", score);
+    player.innerText = score[0];
+    computer.innerText = score[1];
+    comment.innerText = result;
+    startAgain(); } );
+paper.addEventListener('click', function() { 
+    result = playRound(computerPlay(), "paper", score);
+    player.innerText = score[0];
+    computer.innerText = score[1];
+    comment.innerText = result;
+    startAgain(); });
+scissors.addEventListener('click', function() { 
+    result = playRound(computerPlay(), "scissors", score);
+    player.innerText = score[0];
+    computer.innerText = score[1];
+    comment.innerText = result;
+    startAgain(); });
+
+cont.appendChild(computer);
+cont.appendChild(player);
+cont.appendChild(comment);
+
 
 
