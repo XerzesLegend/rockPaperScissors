@@ -1,17 +1,44 @@
+body{
+    background-color: rgb(124, 204, 204);
+}
+
+
 #rock, #paper, #scissors{
     color: black;
 }
 
 .btn-cont{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 #container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    font-weight: 800;
 }
 #score-cont{
     display: flex;
-    justify-content: space-around;
+    gap: 64px;
+}
+#comment{
+    padding: 32px;
+    margin: 32px;
+    font-weight: 800;
+    width: 300px;
+    height: 50px;
+    border: solid darkblue;
+}
+
+button{
+    padding: 32px;
+    font-size: 32px;
+    background-color: rgb(134, 134, 235);
+    border: solid darkblue;
+    transition: 0.1s;
+    cursor: pointer;
+}
+.btn-trans{
+    scale: 1.1;
 }

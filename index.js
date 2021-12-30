@@ -65,9 +65,17 @@ function startAgain(){
     }
 }
 
+function removeTransition(e){
+    if(e.propertyName !== "scale") return
+
+    this.classList.remove('btn-trans');
+}
+
+
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+const btns = document.querySelectorAll("button");
 const cont = document.querySelector('#container');
 let player = document.querySelector('#player');
 let computer = document.querySelector('#computer');
@@ -81,18 +89,21 @@ computer.innerText = score[1];
 
 rock.addEventListener('click', function() { 
     result = playRound(computerPlay(), "rock", score);
+    rock.classList.add('btn-trans');
     player.innerText = score[0];
     computer.innerText = score[1];
     comment.innerText = result;
     startAgain(); } );
 paper.addEventListener('click', function() { 
     result = playRound(computerPlay(), "paper", score);
+    paper.classList.add('btn-trans');
     player.innerText = score[0];
     computer.innerText = score[1];
     comment.innerText = result;
     startAgain(); });
 scissors.addEventListener('click', function() { 
     result = playRound(computerPlay(), "scissors", score);
+    scissors.classList.add('btn-trans');
     player.innerText = score[0];
     computer.innerText = score[1];
     comment.innerText = result;
@@ -101,3 +112,4 @@ scissors.addEventListener('click', function() {
 
 
 
+btns.forEach(btn => btn.addEventListener('transitionend', removeTransition));
