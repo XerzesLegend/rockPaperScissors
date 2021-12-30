@@ -16,6 +16,7 @@ function playerPlay(){
     answer.toLowerCase();
     return answer
 }
+
 function playRound(computerSelection, playerSelection, score){
     let result;
     if (computerSelection == playerSelection){
@@ -49,23 +50,6 @@ function playRound(computerSelection, playerSelection, score){
     return result
 }
 
-function game(){
-    score = [0,0]
-    let scoreBoard
-    while ((score[0] < 5)&&(score[1] < 5)){
-        score = playRound(computerPlay(), playerPlay(), score);
-        scoreBoard = "You: " + score[1] + " , Computer: " + score[0]
-        console.log(scoreBoard)
-    }
-    let result
-    if (score[0] > score[1]){
-        result = "You lose, humanity is doomed!"
-    }
-    else{
-        result = "You win, you have saved humanity!"
-    }
-    console.log(result)
-}
 function startAgain(){
     if(score[0] == 5){
         score = [0,0];
@@ -85,14 +69,15 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const cont = document.querySelector('#container');
-let player = document.createElement('div');
-let computer = document.createElement('div');
-let score = [0,0];
-let comment = document.createElement('div');
+let player = document.querySelector('#player');
+let computer = document.querySelector('#computer');
+let comment = document.querySelector('#comment');
 
+let score = [0,0];
 player.innerText = score[0];
 computer.innerText = score[1];
-comment.innerText = "Pick rock, paper, or scissors to start";
+
+//Adding Event Listeners to the rock, paper, and scissors buttons
 
 rock.addEventListener('click', function() { 
     result = playRound(computerPlay(), "rock", score);
@@ -113,9 +98,6 @@ scissors.addEventListener('click', function() {
     comment.innerText = result;
     startAgain(); });
 
-cont.appendChild(computer);
-cont.appendChild(player);
-cont.appendChild(comment);
 
 
 

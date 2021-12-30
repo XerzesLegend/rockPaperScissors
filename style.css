@@ -1,0 +1,17 @@
+#rock, #paper, #scissors{
+    color: black;
+}
+
+.btn-cont{
+    display: flex;
+    justify-content: space-around;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#score-cont{
+    display: flex;
+    justify-content: space-around;
+}

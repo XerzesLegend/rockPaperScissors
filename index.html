@@ -2,13 +2,34 @@
 <head>
   <title>Rock Paper Scissors</title>
   <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="container"></div>
     
+  
+    <div id="container">
+      <div id="score-cont">
+        <div>
+          <p>Your score</p>
+          <div id="player"></div>
+        </div>
+        <div>
+          <p>Computer score</p>
+          <div id="computer"></div>
+        </div>
+      </div>
+      <div id="comment">Pick rock, paper, or scissors to start</div>
+    </div>
+    
+    
+    <div class="btn-cont">
     <button id="rock">Rock</button>
     <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>  
+    <button id="scissors">Scissors</button>
+    </div>  
+    
+    
+    
     <script src="index.js"></script>  
 </body>
 </html>
