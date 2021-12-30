@@ -55,13 +55,13 @@ function startAgain(){
         score = [0,0];
         player.innerText = score[0];
         computer.innerText = score[1];
-        comment.innerText = "You win, you have saved humanity! Pick rock, paper, or scissors to start again";
+        comment.innerText = "You lose, humanity is doomed! Pick rock, paper, or scissors to start again";
     }
     if(score[1] == 5){
         score = [0,0];
         player.innerText = score[0];
         computer.innerText = score[1];
-        comment.innerText = "You lose, humanity is doomed! Pick rock, paper, or scissors to start again";
+        comment.innerText = "You win, you have saved humanity! Pick rock, paper, or scissors to start again";
     }
 }
 
@@ -90,22 +90,22 @@ computer.innerText = score[1];
 rock.addEventListener('click', function() { 
     result = playRound(computerPlay(), "rock", score);
     rock.classList.add('btn-trans');
-    player.innerText = score[0];
-    computer.innerText = score[1];
+    player.innerText = score[1];
+    computer.innerText = score[0];
     comment.innerText = result;
     startAgain(); } );
 paper.addEventListener('click', function() { 
     result = playRound(computerPlay(), "paper", score);
     paper.classList.add('btn-trans');
-    player.innerText = score[0];
-    computer.innerText = score[1];
+    player.innerText = score[1];
+    computer.innerText = score[0];
     comment.innerText = result;
     startAgain(); });
 scissors.addEventListener('click', function() { 
     result = playRound(computerPlay(), "scissors", score);
     scissors.classList.add('btn-trans');
-    player.innerText = score[0];
-    computer.innerText = score[1];
+    player.innerText = score[1];
+    computer.innerText = score[0];
     comment.innerText = result;
     startAgain(); });
 
